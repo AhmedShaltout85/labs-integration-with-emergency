@@ -1,0 +1,34 @@
+http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values?labCode=11&testCode=84
+
+http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values/11/84
+
+
+OUTPUT
+
+[
+{
+"maxTestValue": 24.6,
+"labCode": 11,
+"testDate": "2025-09-06"
+},
+{
+"maxTestValue": 24.7,
+"labCode": 11,
+"testDate": "2025-09-03"
+},
+{
+"maxTestValue": 31.7,
+"labCode": 11,
+"testDate": "2025-09-02"
+},
+{
+"maxTestValue": 18.3,
+"labCode": 11,
+"testDate": "2025-09-01"
+},
+{
+"maxTestValue": 27.8,
+"labCode": 11,
+"testDate": "2025-08-31"
+}
+]

@@ -1,0 +1,12 @@
+SELECT MAX(test_value) as test_value, test_date, lab_code
+FROM [awco_labs].[dbo].[labs_daily_tests]
+WHERE
+lab_code = ? AND
+test_date >= DATEADD(DAY, -7, GETDATE()) AND
+test_is_approved = 1 AND
+test_code = ? AND
+[test_value] IS NOT NULL
+GROUP BY test_date, lab_code
+ORDER BY test_date DESC
+
+
