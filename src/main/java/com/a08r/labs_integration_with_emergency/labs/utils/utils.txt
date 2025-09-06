@@ -2,6 +2,8 @@ http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/te
 
 http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values/11/84
 
+http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values-last/11/84
+
 
 OUTPUT
 
@@ -30,5 +32,43 @@ OUTPUT
 "maxTestValue": 27.8,
 "labCode": 11,
 "testDate": "2025-08-31"
+}
+]
+
+[
+{
+"maxTestValue": 24.6,
+"labCode": 11,
+"testDate": "2025-09-06"
+},
+{
+"maxTestValue": 24.7,
+"labCode": 11,
+"testDate": "2025-09-03"
+},
+{
+"maxTestValue": 31.7,
+"labCode": 11,
+"testDate": "2025-09-02"
+},
+{
+"maxTestValue": 18.3,
+"labCode": 11,
+"testDate": "2025-09-01"
+},
+{
+"maxTestValue": 27.8,
+"labCode": 11,
+"testDate": "2025-08-31"
+},
+{
+"maxTestValue": 21.5,
+"labCode": 11,
+"testDate": "2025-08-30"
+},
+{
+"maxTestValue": 24.3,
+"labCode": 11,
+"testDate": "2025-08-28"
 }
 ]
