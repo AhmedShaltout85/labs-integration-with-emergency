@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface LabDailyTestService {
     List<Object[]> getMaxTestValuesLast7Days(String labCode, String testCode);
+    List<Object[]> getTestValuesLastTop7(String labCode, String testCode);
 }

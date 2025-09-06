@@ -47,6 +47,7 @@ public class LabDailyTestController {
     }
 
     //get path variables
+    //TODO:http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values/11/84
     @GetMapping("/test-values/{labCode}/{testCode}")
     public ResponseEntity<?> getTestValuesLast7Days(
             @PathVariable String labCode,
@@ -74,19 +75,48 @@ public class LabDailyTestController {
         }
     }
 
-    // Alternative endpoint that returns raw data
-    @GetMapping("/max-values/raw")
-    public ResponseEntity<?> getMaxTestValuesLast7DaysRaw(
-            @RequestParam String labCode,
-            @RequestParam String testCode) {
+   //get path variables
+    //TODO:http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values-last/11/84
+    @GetMapping("/test-values-last/{labCode}/{testCode}")
+    public ResponseEntity<?> getTestValuesLastTop7(
+            @PathVariable String labCode,
+            @PathVariable String testCode) {
 
         try {
-            List<Object[]> results = labDailyTestService.getMaxTestValuesLast7Days(labCode, testCode);
-            return ResponseEntity.ok(results);
+            List<Object[]> results = labDailyTestService.getTestValuesLastTop7(labCode, testCode);
+
+            // Transform the Object[] results into a more readable format
+            List<Map<String, Object>> formattedResults = results.stream()
+                    .map(result -> {
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("maxTestValue", result[0]);      // MAX(test_value)
+                        map.put("testDate", result[1]);          // test_date
+                        map.put("labCode", result[2]);           // lab_code
+                        return map;
+                    })
+                    .toList();
+
+            return ResponseEntity.ok(formattedResults);
 
         } catch (Exception e) {
             return ResponseEntity.internalServerError()
                     .body(Map.of("error", "Failed to retrieve test data: " + e.getMessage()));
         }
     }
+
+//    // Alternative endpoint that returns raw data
+//    @GetMapping("/max-values/raw")
+//    public ResponseEntity<?> getMaxTestValuesLast7DaysRaw(
+//            @RequestParam String labCode,
+//            @RequestParam String testCode) {
+//
+//        try {
+//            List<Object[]> results = labDailyTestService.getMaxTestValuesLast7Days(labCode, testCode);
+//            return ResponseEntity.ok(results);
+//
+//        } catch (Exception e) {
+//            return ResponseEntity.internalServerError()
+//                    .body(Map.of("error", "Failed to retrieve test data: " + e.getMessage()));
+//        }
+//    }
 }

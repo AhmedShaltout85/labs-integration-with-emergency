@@ -17,5 +17,8 @@ public class LabDailyTestServiceImpl implements LabDailyTestService {
     @Override
     public List<Object[]> getMaxTestValuesLast7Days(String labCode, String testCode) {
         return labDailyTestRepository.findMaxTestValuesLast7Days(labCode, testCode);
+    }   @Override
+    public List<Object[]> getTestValuesLastTop7(String labCode, String testCode) {
+        return labDailyTestRepository.findTestValuesLastTop7(labCode, testCode);
     }
 }

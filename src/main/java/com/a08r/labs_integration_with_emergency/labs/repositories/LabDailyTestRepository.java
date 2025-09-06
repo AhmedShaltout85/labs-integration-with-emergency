@@ -27,4 +27,19 @@ public interface LabDailyTestRepository extends JpaRepository<LabDailyTest, Long
     List<Object[]> findMaxTestValuesLast7Days(
             @Param("labCode") String labCode,
             @Param("testCode") String testCode);
+
+    @Query(value = """
+        SELECT TOP 7 MAX(test_value) as max_test_value, test_date, lab_code
+        FROM [awco_labs].[dbo].[labs_daily_tests]
+        WHERE
+        lab_code = :labCode AND
+        test_is_approved = 1 AND
+        test_code = :testCode AND
+        test_value IS NOT NULL
+        GROUP BY test_date, lab_code
+        ORDER BY test_date DESC
+        """, nativeQuery = true)
+    List<Object[]> findTestValuesLastTop7(
+            @Param("labCode") String labCode,
+            @Param("testCode") String testCode);
 }
