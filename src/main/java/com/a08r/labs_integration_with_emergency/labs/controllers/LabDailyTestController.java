@@ -33,7 +33,7 @@ public class LabDailyTestController {
                         Map<String, Object> map = new HashMap<>();
                         map.put("maxTestValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
-                        map.put("labCode", result[2]);           // lab_code
+//                        map.put("labCode", result[2]);           // lab_code
                         return map;
                     })
                     .toList();
@@ -62,7 +62,7 @@ public class LabDailyTestController {
                         Map<String, Object> map = new HashMap<>();
                         map.put("maxTestValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
-                        map.put("labCode", result[2]);           // lab_code
+//                        map.put("labCode", result[2]);           // lab_code
                         return map;
                     })
                     .toList();
@@ -91,7 +91,7 @@ public class LabDailyTestController {
                         Map<String, Object> map = new HashMap<>();
                         map.put("maxTestValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
-                        map.put("labCode", result[2]);           // lab_code
+//                        map.put("labCode", result[2]);           // lab_code
                         return map;
                     })
                     .toList();
