@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.a08r</groupId>
 	<artifactId>labs-integration-with-emergency</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>labs-integration-with-emergency</name>
 	<description>labs-integration-with-emergency project for Spring Boot</description>

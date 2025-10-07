@@ -13,7 +13,7 @@ import java.util.List;
 public interface LabDailyTestRepository extends JpaRepository<LabDailyTest, Long> {
 
     @Query(value = """
-        SELECT MAX(test_value) as max_test_value, test_date
+        SELECT ROUND(AVG(test_value), 1) as avg_test_value, test_date
         FROM [awco_labs].[dbo].[labs_daily_tests]
         WHERE
         lab_code = :labCode AND
@@ -29,7 +29,7 @@ public interface LabDailyTestRepository extends JpaRepository<LabDailyTest, Long
             @Param("testCode") String testCode);
 
     @Query(value = """
-        SELECT TOP 7 MAX(test_value) as max_test_value, test_date
+        SELECT TOP 7 ROUND(AVG(test_value), 1) as avg_test_value, test_date
         FROM [awco_labs].[dbo].[labs_daily_tests]
         WHERE
         lab_code = :labCode AND

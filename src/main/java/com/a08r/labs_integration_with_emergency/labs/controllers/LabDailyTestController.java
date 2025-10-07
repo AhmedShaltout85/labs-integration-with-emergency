@@ -31,7 +31,7 @@ public class LabDailyTestController {
             List<Map<String, Object>> formattedResults = results.stream()
                     .map(result -> {
                         Map<String, Object> map = new HashMap<>();
-                        map.put("maxTestValue", result[0]);      // MAX(test_value)
+                        map.put("testValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
 //                        map.put("labCode", result[2]);           // lab_code
                         return map;
@@ -47,7 +47,7 @@ public class LabDailyTestController {
     }
 
     //get path variables
-    //TODO:http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values/11/84
+    //TODO:http://localhost:9999/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values/11/84
     @GetMapping("/test-values/{labCode}/{testCode}")
     public ResponseEntity<?> getTestValuesLast7Days(
             @PathVariable String labCode,
@@ -60,7 +60,7 @@ public class LabDailyTestController {
             List<Map<String, Object>> formattedResults = results.stream()
                     .map(result -> {
                         Map<String, Object> map = new HashMap<>();
-                        map.put("maxTestValue", result[0]);      // MAX(test_value)
+                        map.put("testValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
 //                        map.put("labCode", result[2]);           // lab_code
                         return map;
@@ -76,7 +76,7 @@ public class LabDailyTestController {
     }
 
    //get path variables
-    //TODO:http://localhost:9997/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values-last/11/84
+    //TODO:http://localhost:9999/labs-integration-with-emergency/api/v1/labs-w-emergency/test-values-last/11/84
     @GetMapping("/test-values-last/{labCode}/{testCode}")
     public ResponseEntity<?> getTestValuesLastTop7(
             @PathVariable String labCode,
@@ -89,7 +89,7 @@ public class LabDailyTestController {
             List<Map<String, Object>> formattedResults = results.stream()
                     .map(result -> {
                         Map<String, Object> map = new HashMap<>();
-                        map.put("maxTestValue", result[0]);      // MAX(test_value)
+                        map.put("testValue", result[0]);      // MAX(test_value)
                         map.put("testDate", result[1]);          // test_date
 //                        map.put("labCode", result[2]);           // lab_code
                         return map;
