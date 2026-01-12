@@ -1,48 +1,83 @@
 # Labs Integration With Emergency
 
-A Spring Boot application built to integrate laboratory systems with emergency services.  
-The project is packaged as a **WAR** file and uses **Spring Data JPA** with **Microsoft SQL Server**.
+## Overview
+
+**Labs Integration With Emergency** is a Spring Boot–based backend application designed to integrate laboratory systems with emergency and healthcare services.  
+The system exposes RESTful APIs that allow secure exchange of laboratory data, results, and operational information with emergency platforms.
+
+The application is built using **Spring Boot 3.5.5**, follows modern Java standards (**Java 17**), and is packaged as a **WAR** file to support deployment in enterprise environments using **external Apache Tomcat servers**.
 
 ---
 
-## 🛠 Tech Stack
+## Key Objectives
 
+- Integrate laboratory systems with emergency response platforms
+- Provide reliable REST APIs for data exchange
+- Ensure scalability and maintainability using Spring Boot and JPA
+- Support enterprise deployment standards (WAR + external Tomcat)
+- Use Microsoft SQL Server as the primary database
+
+---
+
+## Technology Stack
+
+### Core Technologies
 - **Java:** 17
 - **Spring Boot:** 3.5.5
-- **Build Tool:** Maven
+- **Maven:** Build and dependency management
 - **Packaging:** WAR
-- **Database:** Microsoft SQL Server
-- **ORM:** Spring Data JPA (Hibernate)
-- **Application Server:** Apache Tomcat
-- **Utilities:** Lombok
+
+### Spring Modules
+- **Spring Web:** RESTful API development
+- **Spring Data JPA:** ORM and database abstraction
+- **Hibernate:** JPA implementation
+
+### Database
+- **Microsoft SQL Server**
+- **JDBC Driver:** `mssql-jdbc`
+
+### Server
+- **Apache Tomcat 10+**
+   - Embedded for development
+   - External for production (provided scope)
+
+### Utilities
+- **Lombok:** Reduces boilerplate code
+- **Spring Boot Test:** Unit and integration testing
 
 ---
 
-## 📦 Dependencies Overview
+## Project Structure (Typical)
 
-- `spring-boot-starter-web` – RESTful web services
-- `spring-boot-starter-data-jpa` – Database access with JPA
-- `mssql-jdbc` – SQL Server JDBC driver
-- `spring-boot-starter-tomcat` – Provided scope for external Tomcat deployment
-- `lombok` – Boilerplate code reduction
-- `spring-boot-starter-test` – Unit and integration testing
+```text
+src/
+ ├── main/
+ │   ├── java/
+ │   │   └── com/a08r/
+ │   │       ├── controller/   # REST controllers
+ │   │       ├── service/      # Business logic
+ │   │       ├── repository/   # JPA repositories
+ │   │       ├── entity/       # JPA entities
+ │   │       └── config/       # Configuration classes
+ │   └── resources/
+ │       ├── application.properties
+ │       └── application.yml
+ └── test/
+     └── java/
 
----
+Build Configuration
 
-## 📁 Project Packaging
+Java Version: 17
 
-This project is packaged as a **WAR** file:
+Spring Boot Parent: spring-boot-starter-parent:3.5.5
 
-```xml
-<packaging>war</packaging>
-It can be:
+WAR Packaging: Suitable for enterprise deployment
 
-Deployed to an external Tomcat server
+Lombok Annotation Processing: Configured via Maven Compiler Plugin
 
-Or run locally using Spring Boot (embedded Tomcat for development)
+Prerequisites
 
-⚙️ Prerequisites
-Make sure you have the following installed:
+Before running the project, ensure the following are installed:
 
 JDK 17
 
@@ -50,89 +85,157 @@ Maven 3.9+
 
 Microsoft SQL Server
 
-(Optional) Apache Tomcat 10+ for external deployment
+Apache Tomcat 10+ (for external deployment)
 
-🚀 Running the Application
-1️⃣ Configure Database
-Update your application.properties or application.yml:
+An IDE with Lombok support (IntelliJ IDEA / Eclipse)
 
-properties
-نسخ الكود
-spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=YOUR_DB
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+Database Configuration
 
+Configure your database connection in application.properties or application.yml.
+
+Example (application.properties)
+
+spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=LABS_DB
+spring.datasource.username=DB_USERNAME
+spring.datasource.password=DB_PASSWORD
+
+spring.jpa.database-platform=org.hibernate.dialect.SQLServerDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.jpa.database-platform=org.hibernate.dialect.SQLServerDialect
-2️⃣ Build the Project
-bash
-نسخ الكود
+spring.jpa.properties.hibernate.format_sql=true
+
+
+Building the Application
+
+To clean and build the project:
+
 mvn clean package
-This will generate a WAR file in:
 
-text
-نسخ الكود
+
+After a successful build, the WAR file will be generated at:
+
 target/labs-integration-with-emergency-0.0.1.war
-3️⃣ Run Locally (Development)
-bash
-نسخ الكود
+
+Running the Application
+Run Locally (Development Mode)
 mvn spring-boot:run
-Application will start at:
 
-text
-نسخ الكود
-http://localhost:8080
-4️⃣ Deploy to External Tomcat
-Copy the generated WAR file to:
-
-text
-نسخ الكود
-TOMCAT_HOME/webapps/
-Start Tomcat
 
 Access the application at:
 
-text
-نسخ الكود
+http://localhost:8080
+
+Deploy to External Tomcat (Production Mode)
+
+Copy the WAR file:
+
+target/labs-integration-with-emergency-0.0.1.war
+
+
+into:
+
+TOMCAT_HOME/webapps/
+
+
+Start Apache Tomcat
+
+Access the application:
+
 http://localhost:8080/labs-integration-with-emergency
-🧪 Running Tests
-bash
-نسخ الكود
+
+Testing
+
+Run unit and integration tests using:
+
 mvn test
-🧱 Lombok Support
-Lombok is used and configured via the Maven Compiler Plugin.
 
-📌 Make sure Lombok support is enabled in your IDE:
+Lombok Configuration
 
-IntelliJ IDEA: Settings → Plugins → Lombok
+This project uses Lombok for annotations such as:
 
-Eclipse: Install Lombok plugin and run lombok.jar
+@Getter
 
-📌 Notes
-The Tomcat dependency is marked as provided, suitable for WAR deployment.
+@Setter
 
-Java version is locked to 17 for compatibility with Spring Boot 3.x.
+@Builder
 
-Suitable for enterprise integration and backend service deployment.
+@NoArgsConstructor
 
-📄 License
+@AllArgsConstructor
+
+IDE Setup
+
+IntelliJ IDEA:
+Enable Lombok Plugin and Annotation Processing
+
+Eclipse:
+Install Lombok and run lombok.jar
+
+Security Considerations
+
+Externalize database credentials using environment variables in production
+
+Use HTTPS when deployed behind a reverse proxy
+
+Integrate Spring Security if authentication/authorization is required
+
+Logging & Monitoring
+
+Uses Spring Boot default logging (Logback)
+
+Can be extended with:
+
+ELK Stack
+
+Prometheus & Grafana
+
+Centralized logging solutions
+
+Deployment Notes
+
+Designed for enterprise environments
+
+Compatible with CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI)
+
+Supports containerization (Docker) if required
+
+Future Enhancements
+
+API documentation using Swagger / OpenAPI
+
+Authentication & Authorization (OAuth2 / JWT)
+
+Docker & Kubernetes deployment
+
+Audit logging and request tracing
+
+Role-based access control
+
+License
+
 This project is currently unlicensed.
+Add a license file if required by your organization.
 
-👤 Author
+Author
+
 Ahmed Shaltout
-Backend / Spring Boot Developer
+Backend & Spring Boot Developer
 
-🤝 Contribution
-Contributions, issues, and feature requests are welcome.
+Support & Contribution
 
-markdown
-نسخ الكود
+For issues, enhancements, or integration support:
 
-If you want, I can also:
-- Customize it for **internal government / enterprise usage**
-- Add **API documentation (Swagger/OpenAPI)** section
-- Add **Docker** instructions
-- Write it in **Arabic** or bilingual (EN/AR)
+Create an issue
 
-Just tell me 👍   
+Submit a pull request
+
+Follow enterprise coding and security standards
+
+
+If you want, next I can:
+- Add **Swagger/OpenAPI section**
+- Add **Dockerfile + docker-compose**
+- Add **Spring Security (JWT) documentation**
+- Customize it for **government / hospital systems**
+
+Just tell me what you want next 🚀
