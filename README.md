@@ -1,6 +1,6 @@
 💧 Water Quality Labs Integration with Emergency Response System
-Based on the actual repository structure from 
-https://github.com/AhmedShaltout85/labs-integration-with-emergency, 
+Based on the actual repository structure from
+https://github.com/AhmedShaltout85/labs-integration-with-emergency,
 here's the comprehensive documentation:
 
 📋 Project Analysis from Repository Structure
