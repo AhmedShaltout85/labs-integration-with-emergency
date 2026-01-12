@@ -67,7 +67,7 @@ src/
 ```
 
 Build Configuration
-```
+
 Java Version: 17
 
 Spring Boot Parent: spring-boot-starter-parent:3.5.5
@@ -89,7 +89,7 @@ Microsoft SQL Server
 Apache Tomcat 10+ (for external deployment)
 
 An IDE with Lombok support (IntelliJ IDEA / Eclipse)
-```
+
 Database Configuration
 
 Configure your database connection in application.properties or application.yml.
@@ -107,7 +107,7 @@ spring.jpa.properties.hibernate.format_sql=true
 
 ```
 Building the Application
-```
+
 To clean and build the project:
 ```
 mvn clean package
@@ -136,8 +136,6 @@ target/labs-integration-with-emergency-0.0.1.war
 into:
 ```
 TOMCAT_HOME/webapps/
-```
-```
 Start Apache Tomcat
 ```
 Access the application:
