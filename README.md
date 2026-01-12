@@ -168,8 +168,9 @@ IntelliJ IDEA:
 Enable Lombok Plugin and Annotation Processing
 
 Eclipse:
+```
 Install Lombok and run lombok.jar
-
+```
 Security Considerations
 
 Externalize database credentials using environment variables in production
@@ -193,33 +194,34 @@ Centralized logging solutions
 Deployment Notes
 
 Designed for enterprise environments
-```
+
 Compatible with CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI)
-```
+
 Supports containerization (Docker) if required
-```
+
 Future Enhancements
-```
+
 API documentation using Swagger / OpenAPI
-```
+
 Authentication & Authorization (OAuth2 / JWT)
-```
+
 Docker & Kubernetes deployment
-```
+
 Audit logging and request tracing
-```
+
 Role-based access control
-```
+
 License
 
 This project is currently unlicensed.
 Add a license file if required by your organization.
 ```
 Author
-
-Ahmed Shaltout
-Backend & Spring Boot Developer
 ```
+Ahmed Shaltout
+```
+Backend & Spring Boot Developer
+
 Support & Contribution
 
 For issues, enhancements, or integration support:
@@ -230,12 +232,12 @@ Submit a pull request
 
 Follow enterprise coding and security standards
 
-```
+
 If you want, next I can:
+```
 - Add **Swagger/OpenAPI section**
 - Add **Dockerfile + docker-compose**
 - Add **Spring Security (JWT) documentation**
 - Customize it for **government / hospital systems**
 
 Just tell me what you want next 🚀
-```
