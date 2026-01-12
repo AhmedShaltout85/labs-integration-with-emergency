@@ -64,9 +64,10 @@ src/
  │       └── application.yml
  └── test/
      └── java/
+```
 
 Build Configuration
-
+```
 Java Version: 17
 
 Spring Boot Parent: spring-boot-starter-parent:3.5.5
@@ -88,7 +89,7 @@ Microsoft SQL Server
 Apache Tomcat 10+ (for external deployment)
 
 An IDE with Lombok support (IntelliJ IDEA / Eclipse)
-
+```
 Database Configuration
 
 Configure your database connection in application.properties or application.yml.
@@ -104,27 +105,27 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
-
+```
 Building the Application
-
+```
 To clean and build the project:
-
+```
 mvn clean package
 
-
+```
 After a successful build, the WAR file will be generated at:
-
+```
 target/labs-integration-with-emergency-0.0.1.war
 
 Running the Application
 Run Locally (Development Mode)
 mvn spring-boot:run
-
+```
 
 Access the application at:
-
+```
 http://localhost:8080
-
+```
 Deploy to External Tomcat (Production Mode)
 
 Copy the WAR file:
@@ -162,7 +163,7 @@ This project uses Lombok for annotations such as:
 @NoArgsConstructor
 
 @AllArgsConstructor
-
+```
 IDE Setup
 
 IntelliJ IDEA:
@@ -239,3 +240,4 @@ If you want, next I can:
 - Customize it for **government / hospital systems**
 
 Just tell me what you want next 🚀
+```
