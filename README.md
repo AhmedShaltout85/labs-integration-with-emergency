@@ -267,7 +267,7 @@ The application uses Spring Boot default logging. Configure log levels in applic
 properties
 logging.level.com.a08r=DEBUG
 logging.level.org.springframework.web=INFO
-logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.SQL=DEBUG  
 🤝 Integration Points
 External Systems Integration:
 Public Health Department APIs - Critical result reporting
