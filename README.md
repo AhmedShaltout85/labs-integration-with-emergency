@@ -95,7 +95,7 @@ Database Configuration
 Configure your database connection in application.properties or application.yml.
 
 Example (application.properties)
-
+```
 spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=LABS_DB
 spring.datasource.username=DB_USERNAME
 spring.datasource.password=DB_PASSWORD
@@ -129,31 +129,31 @@ http://localhost:8080
 Deploy to External Tomcat (Production Mode)
 
 Copy the WAR file:
-
+```
 target/labs-integration-with-emergency-0.0.1.war
 
-
+```
 into:
-
+```
 TOMCAT_HOME/webapps/
-
-
+```
+```
 Start Apache Tomcat
-
+```
 Access the application:
-
+```
 http://localhost:8080/labs-integration-with-emergency
-
+```
 Testing
 
 Run unit and integration tests using:
-
+```
 mvn test
-
+```
 Lombok Configuration
 
 This project uses Lombok for annotations such as:
-
+```
 @Getter
 
 @Setter
@@ -195,33 +195,33 @@ Centralized logging solutions
 Deployment Notes
 
 Designed for enterprise environments
-
+```
 Compatible with CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI)
-
+```
 Supports containerization (Docker) if required
-
+```
 Future Enhancements
-
+```
 API documentation using Swagger / OpenAPI
-
+```
 Authentication & Authorization (OAuth2 / JWT)
-
+```
 Docker & Kubernetes deployment
-
+```
 Audit logging and request tracing
-
+```
 Role-based access control
-
+```
 License
 
 This project is currently unlicensed.
 Add a license file if required by your organization.
-
+```
 Author
 
 Ahmed Shaltout
 Backend & Spring Boot Developer
-
+```
 Support & Contribution
 
 For issues, enhancements, or integration support:
@@ -232,7 +232,7 @@ Submit a pull request
 
 Follow enterprise coding and security standards
 
-
+```
 If you want, next I can:
 - Add **Swagger/OpenAPI section**
 - Add **Dockerfile + docker-compose**
